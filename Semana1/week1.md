@@ -761,36 +761,36 @@ question, you'll be able to also run it from the PowerShell command line.
 
 ### First steps with Git
 
-We said that a VCS tracks who made which changes, for this to work, we need to 
-tell Git who we are. We can do this by using the **git config** command and then setting the values of **user.email** and **user.name** to our email and our name 
+We said that a VCS tracks who made which changes, for this to work, we need to
+tell Git who we are. We can do this by using the **git config** command and then setting the values of **user.email** and **user.name** to our email and our name
 like this:
 
 ```
 $ git config --global user.email "me@example.com"
 $ git config --global user.name "My name"
-``` 
+```
 
 We use the **--global** flag to state that we want to set this value for all git
-repositories that we'd use. We could also set different values for different repositories. 
+repositories that we'd use. We could also set different values for different repositories.
 
-With that done, there are two ways to start working with a git repository. 
-We can create one from scratch using the **git init** command or we can use the 
+With that done, there are two ways to start working with a git repository.
+We can create one from scratch using the **git init** command or we can use the
 **git clone** command to make a copy of a repository that already exists somewhere
-else. 
+else.
 
-When we run **git init** we initialize an empty git repository in the current directory. 
+When we run **git init** we initialize an empty git repository in the current directory.
 The message that we get mentions a directory called **.git**. We can check that
-this directory exist using the **ls -la** command which lists files that start with 
-a dot. We can also use the **ls -l .git** command to look inside of it and see 
-the many different things it contains. 
+this directory exist using the **ls -la** command which lists files that start with
+a dot. We can also use the **ls -l .git** command to look inside of it and see
+the many different things it contains.
 
 This is called a **Git directory**. You can think of it as a database for your Git
-project that stores the changes and the change history. It contains a bunch of 
-different files and directories. We won't touch any of these files directly, we'll 
-always interact with them through Git commands. 
+project that stores the changes and the change history. It contains a bunch of
+different files and directories. We won't touch any of these files directly, we'll
+always interact with them through Git commands.
 
 So whenever you clone a repository, this git directory is copied to your computer.
-Whenever you run git init to create a new repository like we just did, a new git 
+Whenever you run git init to create a new repository like we just did, a new git
 directory is initialized. The area outside the git directory is the **working tree**.
 
 The working tree is the current version of your project. You can think of it
@@ -799,50 +799,50 @@ you want to your file. This working tree will contain all the files that are
 currently tracked by Git and any new files that we haven't yet added to the
 list of track files.
 
-To make Git track our file, we'll add it to the project using the **git add** 
+To make Git track our file, we'll add it to the project using the **git add**
 command passing the file that we want as a parameter. With that, we've added our
-file to the staging area. The **staging area** which is also known as the **index** 
-is a file maintained by Git that contains all of the information about what files 
-and changes are going to go into your next command. 
+file to the staging area. The **staging area** which is also known as the **index**
+is a file maintained by Git that contains all of the information about what files
+and changes are going to go into your next command.
 
-We can use the **git status** command to get some information about the current 
-working tree and pending changes. 
+We can use the **git status** command to get some information about the current
+working tree and pending changes.
 
 To get it committed into the .git directory, we run the **git commit**
-command. When we run this command, we tell Git that we want to save our changes. 
-It opens a text editor where we can enter a commit message. If you want, you can 
-change the editor used to your preferred editor. 
+command. When we run this command, we tell Git that we want to save our changes.
+It opens a text editor where we can enter a commit message. If you want, you can
+change the editor used to your preferred editor.
 
 ### Tracking files
 
-The Git directory contains the history of all the files and changes. 
-The working tree contains the current state of the project, including any 
-changes that we've made. And the staging area contains the changes that have been 
-marked to be included in the next commit. 
+The Git directory contains the history of all the files and changes.
+The working tree contains the current state of the project, including any
+changes that we've made. And the staging area contains the changes that have been
+marked to be included in the next commit.
 
 Each time you make a commit, Git records a new snapshot of the state
 of your project at that moment. It's a picture of exactly how all these
 files looked at a certain moment in time. Combined, these snapshots make up
 the history of your project, and it's information that gets
-stored in the Git directory. 
+stored in the Git directory.
 
-When we operate with Git, our files can be either tracked or untracked. 
+When we operate with Git, our files can be either tracked or untracked.
 **Tracked files** are part of the snapshots, while **untracked files** aren't
-a part of snapshots yet. This is the usual case for new files. 
+a part of snapshots yet. This is the usual case for new files.
 
-Each track file can be in one of three main states, modified, staged or committed. 
+Each track file can be in one of three main states, modified, staged or committed.
 If a file is in the **modified** state, it means that we've made changes to
 it that we haven't committed yet. The changes could be adding, modifying or
 deleting the contents of the file. Git notices anytime we modify our files. But won't store any changes until
-we add them to the staging area. 
+we add them to the staging area.
 
 So, the next step is to stage those changes. When we do this,
 our modified files become **stage files**. In other words, the changes to those files
 are ready to be committed to the project. All files that are staged will be
-part of the next snapshot we take. 
+part of the next snapshot we take.
 
 And finally, when a file gets **committed**, the changes made to it are safely stored
-in a snapshot in the Git directory. 
+in a snapshot in the Git directory.
 
 This means that typically
 a file tracked by Git, will first be modified when
@@ -854,18 +854,18 @@ we store those changes in the VCS.
 
 We saw that each repository will have
 a Git directory, a working tree, and a staging area. And we called out that files can
-be in three different states, modified, staged, and committed. 
+be in three different states, modified, staged, and committed.
 
 Let's review these concepts one more
 time by looking at the normal workflow when operating with Git
 on a day to day basis. First, all the files we
 want to manage with Git must be a part of a Git repository. We initialize a new repository by
-running the **git init** command in any file system directory. 
+running the **git init** command in any file system directory.
 
 For example, let's use the **mkdir** command
 to create a directory called scripts, and then change into it and
 initialize an empty Git repository init. Our shiny new Git repository can
-now be used to track changes to files inside of it. 
+now be used to track changes to files inside of it.
 
 But before jumping into that, let's check out our current configuration
 by using the **git config -l command**. There's a bunch of info in there,
@@ -874,7 +874,7 @@ to the user.email and the user.name lines. This information will appear
 in public commit logs if you use a shared repository.
 For privacy reasons, you might want to use
 different identities when dealing with your private work and when submitting
-code to public repositories. 
+code to public repositories.
 
 Okay, our repo is ready to work,
 but it's currently empty. Let's create a file in it,
@@ -886,35 +886,35 @@ we'll just call this main function:
 
 This is a script that we'll want to
 execute, so let's make it executable. And then let's check the status of
-our repo using **git status** command. 
+our repo using **git status** command.
 
 As we called out before,
 when we create a new file in a repository, it starts off as **untracked**. We can make all kinds of
 changes to the file, but until we tell Git to track it, Git won't
 do anything with an untracked file. We need to call the **git add** command. This command will immediately move a new
 file from untracked to stage status. And it will also change a file in
-the modified state to **staged** state. 
+the modified state to **staged** state.
 
 Remember that when a file is staged, it
 means it's been added to the staging area and it's ready to be committed
-to the Git repository. 
+to the Git repository.
 
 To initiate a commit of staged files,
 we issue the **git commit** command. When we do this, Git will only commit the changes that
 have been added to the staging area, untracked files or modified files
-that weren't staged will be ignored. 
+that weren't staged will be ignored.
 
 Calling git commit with no parameters
 will launch a text editor, this will open whatever has been
 set as your default editor. If the default editor is not
-the one you'd like to use, there are a bunch of ways to change it. 
+the one you'd like to use, there are a bunch of ways to change it.
 
 We'll say that our change is creating
-an empty all_checks.py file, then save and exit. 
+an empty all_checks.py file, then save and exit.
 We've just recorded
 a snapshot of the code in our project, which is stored in the Git directory. Remember that every time we commit
 changes, we take another snapshot, which is annotated with a commit
-message that we can review later. 
+message that we can review later.
 
 That's how we add new files, but
 usually we'll modify existing ones. So let's add a bit more content to
@@ -922,11 +922,11 @@ our script to see that in action. We'll add a function called check_reboot, that
 is pending a reboot. To do that, we'll check if
 the run/reboot-required file exists. This is a file that's created on our
 computer when some software requires a reboot. And of course,
-since we're using os.path.exists, we need to add import os to our script. 
+since we're using os.path.exists, we need to add import os to our script.
 
 Let's check the current status
 using **git status** again. Our file's modified, but not staged. To stage our changes,
-we need to call git add once again. 
+we need to call git add once again.
 
 What do we need to do next? We have to call git commit to
 store those changes to the Git directory. This time, we'll use the other way
@@ -941,7 +941,7 @@ informative commit message is important when you use a VCS. Future you or other 
 the commit message later on will really appreciate
 the contextual information as they try and
 figure out some of the parts of the code
-or configuration. 
+or configuration.
 
 So what makes a good
 commit message? It can be helpful to keep your audience in mind when
@@ -949,13 +949,13 @@ you write commit messages. What would someone reading
 a message weeks or months from now want to know about
 the changes you've made? What might be
 especially important or tricky to understand about them? Is there extra information that might help the reader out, like links to design documents or tickets in
-your ticketing system? 
+your ticketing system?
 
 Similarly to how style guides
 exist for writing code, your company might have
 specific rules for you to follow when you
 write commit messages. Even if they don't, it's good to use a few
-general guidelines to make sure your commit messages are as clear and useful as possible. 
+general guidelines to make sure your commit messages are as clear and useful as possible.
 
 A commit message is generally broken up
 into a few sections. The first line is
@@ -963,36 +963,36 @@ a short **summary** of the commit followed
 by a **blank line**. This is followed by a
 full **description** of the changes which
 details why they're necessary and anything
-that might be especially interesting about them or difficult to understand. 
+that might be especially interesting about them or difficult to understand.
 
 When you run the
 git commit command, Git will open up a text editor of your choice so you can
-write your commit message. 
+write your commit message.
 
 This text is intended to provide a detailed explanation of what's going on with the change. It can reference bugs or issues that will be
 fixed with the change. It can also include links to more information when relevant. The line limits can be
 annoying but they help in making the commit message be more digestible
-for the reader. 
+for the reader.
 
 There's a git command
 used to display these commit messages called **git log**. This command will do any
 line wrapping for us. Which means that if we don't stick to the recommended
 line wrapping, long commit messages will run off the edge of the screen
-and be difficult to read. 
+and be difficult to read.
 
 Now, take a look at the lines in the commit message that
 start with the pound symbol. Just like in Python, this symbol indicates
 that these lines are comments and won't get included
 in the commit message. Git shows them to us
 whenever we're writing a commit message as a reminder of what files
-were about to commit. 
+were about to commit.
 
 Sometimes it can be
 tempting to just write something
 short like update, change or fix as the description of our commit
 messages. Don't do it. It's super frustrating to go back to repositories history and discover that there's not enough context to understand
 what was changed and why. It takes only a few more seconds to write a better description. This can be invaluable
-down the line. 
+down the line.
 
 Following these
 guidelines can help make your commit
@@ -1000,11 +1000,11 @@ message really useful, and the investment of work now
 will really pay off later. There are plenty of resources
 out there to read including the Linux kernel
 documentation itself along with impassioned opinions
-from other developers. 
+from other developers.
 
 We said that we can
 check the history of the commits of our project
-using the git log command. 
+using the git log command.
 
 Take a look at what git
 tracks as part of the log. It's packing a lot of
@@ -1013,22 +1013,22 @@ each commit is its **identifier**, which is a long string
 of letters and numbers that uniquely
 identify each commit. The first commit in the
 list also says that the head indicator is pointing
-to the master branch. 
+to the master branch.
 
 For each commit, we see
 the name and the email of the person who made the commit which is indicated as the author. Then we get the date and
 time the commit was made. Finally the commit
-message is displayed. 
+message is displayed.
 
 Our commit messages are very brief as we're just starting
 to work on our repository. As the work we do
 becomes more complex, we'll probably write
-longer descriptions with a lot more detail. 
+longer descriptions with a lot more detail.
 
 ### Initial Git cheat sheet
 
 Check out the following links for more information:
 
-The [Linux kernel documentation](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?id=HEAD) itself, as well as [impassioned](https://commit.style/) opinions from other [developers])https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message. 
+The [Linux kernel documentation](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?id=HEAD) itself, as well as [impassioned](https://commit.style/) opinions from other [developers])https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message.
 
 You can check out ["Setting your email in Git"](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address) and ["Keeping your email address private"](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address) on the GitHub help site for how to do this.
